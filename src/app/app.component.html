@@ -1,11 +1,16 @@
-<h1 [hidden]="isHidden"> {{ title }} </h1>
-<h2>Bonjour {{ name }}</h2>
 
+<div class="p-4">
+  <h1>Bonjour {{ userName }}</h1>
+  <div class="mb-3">
+    <label class="form-label">Identifiant</label>
+    <input type="text" class="form-control" 
+    [(ngModel)]="userName">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Mot de passe</label>
+    <input type="password" class="form-control" 
+    [(ngModel)]="userPass">
+  </div>
 
-<div class="btn-group">
-<button class="btn btn-primary" (click)="buttonClick($event)">
-  {{ isHidden?'Afficher':'Masquer' }}
-</button>
-<button class="btn btn-primary" (click)="setName('Seb')">Seb</button>
-<button class="btn btn-primary" (click)="setName('Sev')">Sev</button>
+  <button class="btn btn-primary">Valider</button>
 </div>
