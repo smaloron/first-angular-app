@@ -1,9 +1,31 @@
 
 <div class="p-4">
+
+  <div class="mb-3 row">
+    <div class="col">
+      <input type="text" placeholder="prénom" class="form-control"
+      [(ngModel)]="person.firstName">
+    </div>
+    <div class="col">
+      <input type="text" placeholder="nom" class="form-control"
+      [(ngModel)]="person.name">
+    </div>
+    <div class="col-3">
+      <button class="btn btn-primary w-100"
+      (click)="addPerson()">Valider</button>
+    </div>
+  </div>
+
+
   <ul class="list-group">
-    <li class="list-group-item"
-    *ngFor="let person of personList">
+    <li 
+    class="list-group-item d-flex justify-content-between align-items-center"
+    *ngFor="let person of personList; let pos=index; let even=even"
+    [class.evenRow]="even">
       {{ person.firstName }} {{ person.name }}
+      <button class="btn btn-danger" (click)="onDelete(pos)">
+        X
+      </button>
     </li>
   </ul>
 </div>
