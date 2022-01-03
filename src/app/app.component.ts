@@ -17,6 +17,8 @@ export class AppComponent {
     { name: 'Eluard', firstName: 'Paul' },
   ];
 
+  isFormTouched = false;
+
   person: PersonInterface;
 
   constructor() {
@@ -38,9 +40,11 @@ export class AppComponent {
   }
 
   addPerson(): void {
+    // this.isFormTouched = true;
     if (this.isFormValid()) {
       this.personList.push(this.person);
       this.person = this.createNewPerson();
+      this.isFormTouched = false;
     }  
   }
 
