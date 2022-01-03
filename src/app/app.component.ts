@@ -10,4 +10,8 @@ export class AppComponent {
   a = 5;
   b = 2;
   isHidden = false;
+
+  buttonClick() {
+    console.log("click");
+  }
 }
