@@ -1,10 +1,11 @@
 <h1 [hidden]="isHidden"> {{ title }} </h1>
 <h2>Bonjour {{ name }}</h2>
-{{ a + b }}
 
-<button (click)="buttonClick($event)">
+
+<div class="btn-group">
+<button class="btn btn-primary" (click)="buttonClick($event)">
   {{ isHidden?'Afficher':'Masquer' }}
 </button>
-
-<button (click)="setName('Seb')">Seb</button>
-<button (click)="setName('Sev')">Sev</button>
+<button class="btn btn-primary" (click)="setName('Seb')">Seb</button>
+<button class="btn btn-primary" (click)="setName('Sev')">Sev</button>
+</div>
