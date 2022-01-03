@@ -21,6 +21,10 @@ export class AppComponent {
 
   person: PersonInterface;
 
+  now = new Date();
+
+  price = 5;
+
   constructor() {
     this.person = this.createNewPerson();
   }
