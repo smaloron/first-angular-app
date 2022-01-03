@@ -6,7 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  userName = 'Seb';
-  userPass = '123';
+  user = {
+    name: 'Seb',
+    pass: '123'
+  }
+
+  isFormValid() {
+    return (
+      this.user.name &&
+      this.user.name.length > 0 &&
+      this.user.pass &&
+      this.user.pass.length > 0
+    );
+  }
+
+  validForm() {
+    console.log(this.user);
+  }
 
 }

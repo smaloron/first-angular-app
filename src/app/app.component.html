@@ -1,16 +1,18 @@
 
-<div class="p-4">
-  <h1>Bonjour {{ userName }}</h1>
+<div class="p-4" [class.invalidForm]="! isFormValid()">
+  <h1>Bonjour {{ user.name }}</h1>
+  <p>{{ isFormValid() }}</p>
   <div class="mb-3">
     <label class="form-label">Identifiant</label>
     <input type="text" class="form-control" 
-    [(ngModel)]="userName">
+    [(ngModel)]="user.name">
   </div>
   <div class="mb-3">
     <label class="form-label">Mot de passe</label>
     <input type="password" class="form-control" 
-    [(ngModel)]="userPass">
+    [(ngModel)]="user.pass">
   </div>
 
-  <button class="btn btn-primary">Valider</button>
+  <button class="btn btn-primary"
+  (click)="validForm()" [disabled]="! isFormValid()">Valider</button>
 </div>
