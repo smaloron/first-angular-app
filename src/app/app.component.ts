@@ -10,9 +10,21 @@ export class AppComponent {
   a = 5;
   b = 2;
   isHidden = false;
+  name: string;
+  
+  personList: string[] = [];
+  // personList: Array<string> = []
 
-  buttonClick() {
+  buttonClick(event: Event): void {
     this.isHidden = !this.isHidden;
-    console.log("click");
+    console.log(event);
   }
+
+  setName(name: string): void {
+    this.name = name;
+    this.personList.push(name);
+    console.log(this.personList);
+  }
+
+
 }
