@@ -12,6 +12,7 @@ export class AppComponent {
   isHidden = false;
 
   buttonClick() {
+    this.isHidden = !this.isHidden;
     console.log("click");
   }
 }

@@ -2,4 +2,6 @@
 
 {{ a + b }}
 
-<button (click)="buttonClick()">Afficher</button>
+<button (click)="buttonClick()">
+  {{ isHidden?'Afficher':'Masquer' }}
+</button>
