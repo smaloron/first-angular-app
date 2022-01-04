@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { PersonFormStateInterface } from './components/person-form/person-form.component';
 
-interface PersonInterface {
+export interface PersonInterface {
   name: string;
   firstName: string;
 }
@@ -18,6 +19,7 @@ export class AppComponent {
   ];
 
   isFormTouched = false;
+  isFormValid = true;
 
   person: PersonInterface;
 
@@ -36,20 +38,23 @@ export class AppComponent {
     }
   }
 
-  isFormValid(): boolean {
-    return this.person.firstName &&
-      this.person.firstName.trim().length > 0 &&
-      this.person.name &&
-      this.person.name.trim().length > 0;
+  checkForm(state: boolean): void {
+    this.isFormValid = state;
   }
 
-  addPerson(): void {
-    // this.isFormTouched = true;
-    if (this.isFormValid()) {
-      this.personList.push(this.person);
+  checkTouched(state: PersonFormStateInterface) {
+    this.isFormTouched = state.touched;
+    this.isFormValid = state.valid;
+
+    console.log(
+      this.isFormValid,
+      this.isFormTouched
+    )
+  }
+
+  addPerson(person: PersonInterface): void {
+      this.personList.push(person);
       this.person = this.createNewPerson();
-      this.isFormTouched = false;
-    }  
   }
 
   onDelete(pos: number): void {

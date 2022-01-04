@@ -1,0 +1,14 @@
+<div class="mb-3 row">
+    <div class="col">
+        <input type="text" placeholder="prénom" class="form-control" [(ngModel)]="person.firstName"
+            (input)="onTouchForm()">
+    </div>
+    <div class="col">
+        <input type="text" placeholder="nom" class="form-control" [(ngModel)]="person.name"
+            (input)="onTouchForm()">
+    </div>
+    <div class="col-3">
+        <button [ngClass]="{'btn': true, 'w-100': true, 'btn-primary': isFormValid(), 'btn-secondary': ! isFormValid()}"
+            (click)="addPerson()">Valider</button>
+    </div>
+</div>

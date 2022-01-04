@@ -1,7 +1,7 @@
 
 <div class="p-4">
   <div class="alert alert-danger" 
-  *ngIf="isFormTouched && ! isFormValid(); else instructions">
+  *ngIf="isFormTouched && ! isFormValid; else instructions">
     La saisie est invalide
   </div>
 
@@ -11,6 +11,7 @@
     </div>
   </ng-template>
 
+  <!--
   <div class="mb-3 row">
     <div class="col">
       <input type="text" placeholder="prénom" class="form-control"
@@ -25,7 +26,14 @@
       (click)="addPerson()">Valider</button>
     </div>
   </div>
+-->
 
+  <app-person-form 
+  [person]="person"
+  (onSubmit)="addPerson($event)" 
+  (onFormTouched)="checkTouched($event)"
+  (onFormCheck)="checkForm($event)"
+  ></app-person-form>
 
   <ul class="list-group">
       <app-person 
