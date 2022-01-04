@@ -1,32 +1,13 @@
 
 <div class="p-4">
-  <div class="alert alert-danger" 
-  *ngIf="isFormTouched && ! isFormValid; else instructions">
-    La saisie est invalide
-  </div>
+  
 
-  <ng-template #instructions>
-    <div class="alert alert-secondary">
-      Veuillez saisir les infos de la personne
-    </div>
-  </ng-template>
+  <app-person-form-message
+  [isFormValid]="isFormValid"
+  [isFormTouched]="isFormTouched"
+  >
 
-  <!--
-  <div class="mb-3 row">
-    <div class="col">
-      <input type="text" placeholder="prénom" class="form-control"
-      [(ngModel)]="person.firstName" (input)="isFormTouched=true">
-    </div>
-    <div class="col">
-      <input type="text" placeholder="nom" class="form-control"
-      [(ngModel)]="person.name" (input)="isFormTouched=true">
-    </div>
-    <div class="col-3">
-      <button [ngClass]="{'btn': true, 'w-100': true, 'btn-primary': isFormValid(), 'btn-secondary': ! isFormValid()}"
-      (click)="addPerson()">Valider</button>
-    </div>
-  </div>
--->
+  </app-person-form-message>
 
   <app-person-form 
   [person]="person"
