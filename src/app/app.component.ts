@@ -6,25 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'first-angular-app';
-  a = 5;
-  b = 2;
-  isHidden = false;
-  name: string;
-  
-  personList: string[] = [];
-  // personList: Array<string> = []
+  price = 5;
 
-  buttonClick(event: Event): void {
-    this.isHidden = !this.isHidden;
-    console.log(event);
-  }
-
-  setName(name: string): void {
-    this.name = name;
-    this.personList.push(name);
-    console.log(this.personList);
-  }
-
+  catalog = [
+    { label: 'Souris', price: 5 },
+    { label: 'Ordinateur', price: 800 },
+    { label: 'Ecran', price: 500 },
+  ]
 
 }

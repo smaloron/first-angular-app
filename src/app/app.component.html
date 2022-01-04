@@ -1,11 +1,11 @@
-<h1 [hidden]="isHidden"> {{ title }} </h1>
-<h2>Bonjour {{ name }}</h2>
+<app-price [(amount)]="price"></app-price>
 
+<p>{{ catalog | json }}</p>
 
-<div class="btn-group">
-<button class="btn btn-primary" (click)="buttonClick($event)">
-  {{ isHidden?'Afficher':'Masquer' }}
-</button>
-<button class="btn btn-primary" (click)="setName('Seb')">Seb</button>
-<button class="btn btn-primary" (click)="setName('Sev')">Sev</button>
+<div class="p-4">
+  <div *ngFor="let item of catalog" class="mb-3">
+    <h3>{{ item.label }}</h3>
+    <app-price [(amount)]="item.price"></app-price>
+    <hr>
+  </div>
 </div>
