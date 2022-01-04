@@ -1,18 +1,5 @@
 
 <div class="p-4">
-
-  <p>Nous sommes le : {{ now | date:'dd/MM/yyyy' }}</p>
-
-  <div class="row">
-    <div class="col">
-      <input type="number" step=".1" class="form-control"
-      [(ngModel)]="price">
-    </div>
-    <div class="col">
-      {{ price | percent:'0.0-3' }}
-    </div>
-  </div>
-
   <div class="alert alert-danger" 
   *ngIf="isFormTouched && ! isFormValid(); else instructions">
     La saisie est invalide
@@ -41,14 +28,10 @@
 
 
   <ul class="list-group">
-    <li 
-    class="list-group-item d-flex justify-content-between align-items-center"
-    *ngFor="let person of personList; let pos=index; let even=even"
-    [class.evenRow]="even">
-      {{ person.firstName }} {{ person.name | uppercase }}
-      <button class="btn btn-danger" (click)="onDelete(pos)">
-        X
-      </button>
-    </li>
+      <app-person 
+        *ngFor="let person of personList; let even=even; let pos=index" 
+        [person]="person" [even]="even" [pos]="pos"
+        (onDeletePerson)="onDelete($event)">
+      </app-person>
   </ul>
 </div>
