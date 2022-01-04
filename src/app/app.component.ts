@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,25 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'first-angular-app';
-  a = 5;
-  b = 2;
-  isHidden = false;
-  name: string;
-  
-  personList: string[] = [];
-  // personList: Array<string> = []
+  n = 5;
 
-  buttonClick(event: Event): void {
-    this.isHidden = !this.isHidden;
-    console.log(event);
+  constructor(private router: Router){}
+
+  goToProduct() {
+    this.router.navigate(['/product', this.n]);
   }
-
-  setName(name: string): void {
-    this.name = name;
-    this.personList.push(name);
-    console.log(this.personList);
-  }
-
-
 }

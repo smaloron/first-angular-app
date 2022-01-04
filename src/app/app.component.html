@@ -1,1 +1,29 @@
+<input type="number" [(ngModel)]="n">
+<p>{{ n }}</p>
+<button class="btn btn-warning" (click)="goToProduct()">
+  Voir le produit
+</button>
+
+
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a href="#" routerLink="/home" class="nav-link"
+    routerLinkActive="active">
+      Home
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="#" routerLink="/contact" class="nav-link" routerLinkActive="active">Contact</a>
+  </li>
+  <li class="nav-item">
+    <a href="#" routerLink="/product/2" class="nav-link" routerLinkActive="active">Product</a>
+  </li>
+  <li class="nav-item">
+    <a href="#" routerLink="/" class="nav-link" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}"
+    >Production</a>
+  </li>
+</ul>
+
 <router-outlet></router-outlet>
