@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SecondPageComponent } from './pages/second-page/second-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstPageComponent } from './pages/first-page/first-page.component';
+import { LoggerService } from './services/logger.service';
 
 const appRoutes: Routes = [
   { path: 'page1', component: FirstPageComponent },
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [HelloService],
+  providers: [HelloService, LoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
